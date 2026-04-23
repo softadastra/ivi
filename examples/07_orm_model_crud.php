@@ -2,20 +2,19 @@
 
 declare(strict_types=1);
 
-use Ivi\Core\ORM\{Model, QueryBuilder, Connection};
+use Ivi\Core\ORM\{Model};
 
-// Example User model (ActiveRecord-like)
 final class User extends Model
 {
-    protected static array $fillable = ['name','email','password','active'];
+  protected static array $fillable = ['name', 'email', 'password', 'active'];
 }
 
 // -- CREATE
 $new = User::create([
-    'name'     => 'Charlie',
-    'email'    => 'charlie@example.com',
-    'password' => password_hash('topsecret', PASSWORD_BCRYPT),
-    'active'   => 1,
+  'name'     => 'Charlie',
+  'email'    => 'charlie@example.com',
+  'password' => password_hash('topsecret', PASSWORD_BCRYPT),
+  'active'   => 1,
 ]);
 
 echo "[CREATE] id=" . $new->toArray()['id'] . "\n";
