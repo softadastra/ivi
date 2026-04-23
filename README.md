@@ -1,206 +1,313 @@
-<p align="center" style="margin:0;">
-  <img 
-    src="https://res.cloudinary.com/dwjbed2xb/image/upload/v1762524618/iviphp_jrpema.png" 
-    alt="Ivi.php Banner" 
-    width="100%" 
-    style="
-      display:block;
-      height:auto;
-      max-width:900px;
-      margin:auto;
-      object-fit:cover;
-      border-radius:8px;
-    ">
-</p>
+<table>
+  <tr>
+    <td valign="top" width="65%">
 
-<h1 align="center">Ivi.php</h1>
+<h1>Ivi.php</h1>
 
-<p align="center">
+<p>
   <img src="https://img.shields.io/badge/PHP-8.2+-blue">
   <img src="https://img.shields.io/badge/License-MIT-green">
 </p>
 
-# 🟩 **Ivi.php** — Simple. Modern. Expressive.
+<h3>Build backend systems with clarity.</h3>
 
-> **“Code with clarity.”**  
-> Ivi.php is a modern PHP framework built for developers who value simplicity, speed, and expressive code.  
-> Its minimal core and clean structure make building APIs and web applications a joyful experience.
+<p>
+  Ivi.php is a modern PHP framework designed for developers who want a clean structure, predictable behavior, and fast development without unnecessary complexity.
+</p>
 
----
+</td>
 
-# 🚀 Getting Started
+<td valign="middle" width="30%" align="right">
 
-Welcome to **Ivi.php** — a lightweight, modern framework designed to help you build fast and elegant PHP applications.
+<img
+  src="https://res.cloudinary.com/dwjbed2xb/image/upload/v1762524618/iviphp_jrpema.png"
+  width="200"
+  style="border-radius:10px; object-fit:cover;"
+/>
 
-This guide will walk you through:
+</td>
+  </tr>
+</table>
 
-- Bootstrapping a new project
-- Understanding the folder layout
-- Creating your first route, controller, and view
-- Connecting to a database with ease
+## Overview
 
----
+Ivi.php is a modern PHP framework designed for building APIs and web applications with clarity and control.
 
-## Requirements
+It provides a minimal core with a consistent architecture, allowing developers to build production-ready systems without unnecessary complexity.
 
-- PHP **8.2+**
-- PDO + driver (e.g. `pdo_mysql` or `pdo_sqlite`)
-- Composer
-- Recommended: `php -S localhost:8000 -t public` for local dev
+The framework focuses on:
 
----
+- predictable structure
+- explicit behavior
+- fast development cycles
+- real-world features out of the box
 
-## 1) Installation
-
-### A. Create a project
+## Installation
 
 ```bash
 composer create-project iviphp/ivi my-app
 cd my-app
 ```
 
-> If you cloned the repo directly, run `composer install`.
-
-### B. Project structure (overview)
+Run the application:
 
 ```bash
-.
-├─ bootstrap/          # app boot strap & helpers
-├─ config/             # app, routes, database config
-├─ core/               # ivi.php framework core (Bootstrap, Http, ORM, ...)
-├─ public/             # web root (index.php)
-├─ src/                # your application code (Controllers, Models, ...)
-├─ views/              # PHP templates
-├─ scripts/            # migrations, seeds, dev scripts
-├─ docs/               # documentation
-└─ vendor/
+ivi serve
 ```
 
----
-
-## 2) First Run
-
-Serve the app:
-
-```bash
-php -S localhost:8000 -t public
-```
-
-Open: <http://localhost:8000>
-
-You should see the default page or a basic route response (see next section).
-
----
-
-## 3) Routing
-
-Routes are declared in `config/routes.php`.
+## Quick Example
 
 ```php
-<?php
-
-use Ivi\Router\Router;
-use App\Controllers\HomeController;
-use App\Controllers\User\UserController;
-
-/** @var Router $router */
-
-$router->get('/', function () {
-    return 'Hello ivi.php!';
-});
-
-$router->get('/users', [UserController::class, 'index']);
-$router->get('/users/{id}', [UserController::class, 'show']);
-```
-
----
-
-## 4) Controllers
-
-```php
-<?php
-
-namespace App\Controllers;
-
+use Ivi\Core\Bootstrap\App;
 use Ivi\Http\Request;
-use Ivi\Http\HtmlResponse;
 
-final class HomeController extends Controller
+$app = new App(__DIR__);
+
+$app->router->get('/', fn() => ['hello' => 'ivi.php']);
+
+$app->router->post('/echo', fn(Request $req) => [
+    'you_sent' => $req->json()
+]);
+
+$app->run();
+```
+
+## Routing
+
+```php
+$app->router->get('/users', fn() => ['users' => []]);
+
+$app->router->get('/user/{name}', function (array $params) {
+    return ['name' => $params['name']];
+});
+```
+
+## Request Handling
+
+```php
+$app->router->post('/data', function (Request $req) {
+    return [
+        'json' => $req->json(),
+        'all'  => $req->all()
+    ];
+});
+```
+
+## Views
+
+```php
+use Ivi\Core\View\View;
+
+$app->router->get('/', function () {
+    return View::make('home', [
+        'title'   => 'Welcome',
+        'message' => 'Ivi.php running'
+    ]);
+});
+```
+
+## Validation
+
+```php
+use Ivi\Core\Validation\Validator;
+
+$input = [
+    'email'    => 'user@example.com',
+    'password' => 'secret123'
+];
+
+$validated = (new Validator($input, [
+    'email'    => 'required|email',
+    'password' => 'required|min:6'
+]))->validate();
+```
+
+Update scenario:
+
+```php
+$post = ['password' => ''];
+
+if (trim($post['password']) === '') {
+    unset($post['password']);
+}
+
+$validated = (new Validator($post, [
+    'password' => 'sometimes|min:6'
+]))->validate();
+```
+
+## ORM
+
+### Model
+
+```php
+use Ivi\Core\ORM\Model;
+
+final class User extends Model
 {
-    public function index(Request $request): HtmlResponse
+    protected static array $fillable = ['name', 'email', 'password', 'active'];
+}
+```
+
+### CRUD
+
+```php
+$user = User::create([
+    'name'  => 'Alice',
+    'email' => 'alice@example.com'
+]);
+
+$found = User::find(1);
+
+$found->fill(['name' => 'Updated'])->save();
+
+$found->delete();
+```
+
+### Query Builder
+
+```php
+$users = User::query()
+    ->where('status = ?', 'active')
+    ->orderBy('id DESC')
+    ->limit(5)
+    ->get();
+
+$count = User::query()
+    ->where('status = ?', 'active')
+    ->count();
+```
+
+### Repository Pattern
+
+```php
+use Ivi\Core\ORM\Repository;
+
+final class UserRepository extends Repository
+{
+    protected function modelClass(): string
     {
-        return $this->view('home', [
-            'title' => 'Welcome to ivi.php',
-            'message' => 'Fast & expressive.',
-        ], $request);
+        return User::class;
+    }
+
+    public function findByEmail(string $email): ?User
+    {
+        $row = User::query()->where('email = ?', $email)->first();
+        return $row ? new User($row) : null;
     }
 }
 ```
 
----
-
-## 5) Views
+## JWT Authentication
 
 ```php
-<!-- views/home.php -->
-<?php $this->layout('base', ['title' => $title ?? 'ivi.php']); ?>
+use Ivi\Core\Jwt\JWT;
 
-<section class="section container">
-  <h1><?= htmlspecialchars($title ?? 'Welcome') ?></h1>
-  <p><?= htmlspecialchars($message ?? '') ?></p>
-</section>
+$jwt = new JWT();
+
+$token = $jwt->generate([
+    'sub' => 123
+], [
+    'key'      => 'secret',
+    'alg'      => 'HS256',
+    'validity' => 3600
+]);
+
+$jwt->check($token, ['key' => 'secret']);
 ```
 
-Layout example:
+## Logging
 
 ```php
-<!-- views/base.php -->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title><?= htmlspecialchars($title ?? 'ivi.php') ?></title>
-  <link href="<?= asset('assets/css/app.css') ?>" rel="stylesheet">
-  <?= $styles ?? '' ?>
-</head>
-<body>
-  <nav class="nav"><a href="/">ivi.php</a></nav>
-  <main><?= $this->section('content') ?></main>
-  <?= $scripts ?? '' ?>
-</body>
-</html>
+log_info("Application started");
+
+log_error("Database error", "Database");
+
+log_debug([
+    'user_id' => 1
+], "Debugging");
 ```
 
----
+Features:
 
-## 6) Markdown Docs
+- daily log rotation
+- JSON support
+- trace mode
+- automatic log directory creation
+
+## Collections
 
 ```php
-$router->get('/docs', [\App\Controllers\Docs\DocsController::class, 'index']);
+$v = vector([1, 2, 3]);
+$v->push(4);
+
+$m = hashmap(['name' => 'Ivi']);
+$m->put('version', '1.0');
+
+$s = hashset(['apple']);
+$s->add('banana');
+
+$t = str(" hello ")->trim()->upper();
 ```
 
-View: `views/docs/page.php`
+## CLI
 
-```php
-<section class="docs-hero">
-  <div class="container">
-    <h1>Documentation</h1>
-    <p class="lead">Build fast and expressive apps with <strong>ivi.php</strong>.</p>
-  </div>
-</section>
+Ivi.php provides a built-in CLI for development and deployment.
 
-<main class="docs-content container markdown-body">
-  <?= $content ?>
-</main>
+#### Project
+```bash
+ivi new my-app
 ```
 
----
+#### Database
+```bash
+ivi migrate
+ivi migrate:status
+ivi migrate:reset
+ivi seed
+```
 
-## 7) Environment & Config
+#### Modules
+```bash
+ivi make:module Blog
+ivi modules:publish-assets
+```
 
-```ini
+#### Development
+```bash
+ivi serve
+ivi test
+ivi coverage
+```
+
+#### Deployment
+```bash
+ivi deploy
+```
+
+## Project Structure
+
+```
+.
+├── bootstrap/
+├── config/
+├── core/
+├── public/
+├── src/
+├── views/
+├── scripts/
+├── docs/
+└── vendor/
+```
+
+## Configuration
+
+Example `.env`:
+
+```env
 APP_ENV=local
 APP_DEBUG=true
+
 DB_DRIVER=mysql
 DB_HOST=127.0.0.1
 DB_NAME=iviphp
@@ -208,117 +315,29 @@ DB_USER=root
 DB_PASS=secret
 ```
 
-```php
-return [
-  'default' => $_ENV['DB_DRIVER'] ?? 'mysql',
-  'connections' => [
-    'mysql' => [
-      'driver' => 'mysql',
-      'host' => $_ENV['DB_HOST'] ?? '127.0.0.1',
-      'database' => $_ENV['DB_NAME'] ?? 'iviphp',
-      'username' => $_ENV['DB_USER'] ?? 'root',
-      'password' => $_ENV['DB_PASS'] ?? '',
-    ],
-  ],
-];
-```
+## Philosophy
 
----
+Ivi.php is built around a simple idea:
 
-## 8) ORM Quickstart
+- keep the core minimal
+- expose real capabilities
+- avoid hidden magic
+- favor explicit code over abstraction
 
-```php
-<?php
+## Documentation
 
-namespace App\Models;
+[https://iviphp.com/docs](https://iviphp.com/docs)
 
-use Ivi\Core\ORM\Model;
+## Download
 
-final class User extends Model
-{
-    protected string $table = 'users';
-}
-```
-
-Usage:
-
-```php
-use App\Models\User;
-
-$user = User::create(['name' => 'Ada', 'email' => 'ada@example.com']);
-$found = User::find(1);
-$found->update(['name' => 'Ada Lovelace']);
-$found->delete();
-```
-
----
-
-## 9) Migrations CLI
+[https://github.com/iviphp/ivi](https://github.com/iviphp/ivi)
 
 ```bash
-php bin/ivi migrate
-php bin/ivi migrate:status
-php bin/ivi migrate:reset
+git clone https://github.com/iviphp/ivi.git
+cd ivi
+composer install
 ```
 
-Example SQL:
+## License
 
-```sql
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(120),
-  email VARCHAR(190) UNIQUE
-);
-```
-
----
-
-## 10) Validation
-
-```php
-use Ivi\Http\Request;
-use Ivi\Validation\Validator;
-
-$validator = Validator::make($request->all(), [
-  'name' => 'required|min:2|max:120',
-  'email' => 'required|email',
-]);
-
-if ($validator->fails()) {
-  return response()->json(['errors' => $validator->errors()], 422);
-}
-```
-
----
-
-## 11) Responses
-
-```php
-use Ivi\Http\JsonResponse;
-use Ivi\Http\HtmlResponse;
-
-return new JsonResponse(['ok' => true]);
-return new HtmlResponse('<h1>Hello</h1>');
-```
-
----
-
-## 12) Production Tips
-
-- Set `APP_ENV=production`
-- Use `APP_DEBUG=false`
-- Configure opcache
-- Serve from `public/`
-- Minify assets
-
----
-
-Happy building with **ivi.php** 🚀
-
-## ⚖️ License
-
-MIT License © 2025 [GaspardKirira Authors](https://github.com/GaspardKirira)  
-Use freely, modify openly, contribute boldly. 🚀
-# Test Packagist Hook
-- hook test Fri Nov  7 08:07:12 PM EAT 2025
-- packagist hook test
+MIT License © 2026 Gaspard Kirira

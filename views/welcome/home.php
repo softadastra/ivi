@@ -1,6 +1,5 @@
 <?php
 
-/** views/welcome/home.php — rendu dans base.php */
 ?>
 <section class="hero py-5 bg-light text-dark">
     <div class="container text-center">
