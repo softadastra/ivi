@@ -20,7 +20,7 @@ This guide helps you boot a fresh project, understand the folder layout, create 
 ### A. Create a project
 
 ```bash
-composer create-project iviphp/ivi my-app
+composer create-project softadastra/ivi my-app
 cd my-app
 ```
 
@@ -168,7 +168,7 @@ APP_ENV=local
 APP_DEBUG=true
 DB_DRIVER=mysql
 DB_HOST=127.0.0.1
-DB_NAME=iviphp
+DB_NAME=ivi
 DB_USER=root
 DB_PASS=secret
 ```
@@ -180,7 +180,7 @@ return [
     'mysql' => [
       'driver' => 'mysql',
       'host' => $_ENV['DB_HOST'] ?? '127.0.0.1',
-      'database' => $_ENV['DB_NAME'] ?? 'iviphp',
+      'database' => $_ENV['DB_NAME'] ?? 'ivi',
       'username' => $_ENV['DB_USER'] ?? 'root',
       'password' => $_ENV['DB_PASS'] ?? '',
     ],

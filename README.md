@@ -45,7 +45,7 @@ The framework focuses on:
 ## Installation
 
 ```bash
-composer create-project iviphp/ivi my-app
+composer create-project softadastra/ivi my-app
 cd my-app
 ```
 
@@ -310,7 +310,7 @@ APP_DEBUG=true
 
 DB_DRIVER=mysql
 DB_HOST=127.0.0.1
-DB_NAME=iviphp
+DB_NAME=ivi
 DB_USER=root
 DB_PASS=secret
 ```
@@ -326,14 +326,14 @@ Ivi.php is built around a simple idea:
 
 ## Documentation
 
-[https://iviphp.com/docs](https://iviphp.com/docs)
+[https://ivi.softadastra.com/docs](https://ivi.softadastra.com/docs)
 
 ## Download
 
-[https://github.com/iviphp/ivi](https://github.com/iviphp/ivi)
+[https://github.com/softadastra/ivi](https://github.com/softadastra/ivi)
 
 ```bash
-git clone https://github.com/iviphp/ivi.git
+git clone https://github.com/softadastra/ivi.git
 cd ivi
 composer install
 ```

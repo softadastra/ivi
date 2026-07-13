@@ -4,7 +4,7 @@
             © <span id="year"></span> ivi.php — Part of the Softadastra ecosystem.
         </div>
         <div class="foot-right foot-links">
-            <a class="link nav-link" href="https://github.com/iviphp/ivi" target="_blank" rel="noopener noreferrer">
+            <a class="link nav-link" href="https://github.com/softadastra/ivi" target="_blank" rel="noopener noreferrer">
                 GitHub
             </a>
             <span class="separator">•</span>

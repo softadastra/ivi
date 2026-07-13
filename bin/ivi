@@ -170,7 +170,7 @@ final class CliBootstrap
             }
 
             echo self::badge('IVI', 'cyan') . " Creating new project: {$name}\n";
-            $cmdLine = sprintf('composer create-project iviphp/ivi %s', escapeshellarg($name));
+            $cmdLine = sprintf('composer create-project softadastra/ivi %s', escapeshellarg($name));
             passthru($cmdLine, $code);
 
             if ($code === 0) {

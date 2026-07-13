@@ -24,8 +24,8 @@
         <p>Install the framework using Composer:</p>
         <div class="code-block">
             <button class="copy-btn" type="button" aria-label="Copy install command"
-                data-copy="composer create-project iviphp/ivi myapp">Copy</button>
-            <pre><code data-lang="bash">composer create-project iviphp/ivi myapp</code></pre>
+                data-copy="composer create-project softadastra/ivi myapp">Copy</button>
+            <pre><code data-lang="bash">composer create-project softadastra/ivi myapp</code></pre>
         </div>
 
         <p>Then start the built-in PHP server:</p>

@@ -20,11 +20,11 @@
 
         <div class="mb-4 d-flex justify-content-center gap-3 flex-wrap">
             <a class="btn btn-lg btn-primary" href="/docs" rel="noopener" data-spa>Get Started</a>
-            <a class="btn btn-lg btn-outline-secondary" href="https://github.com/iviphp/ivi" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn btn-lg btn-outline-secondary" href="https://github.com/softadastra/ivi" target="_blank" rel="noopener">View on GitHub</a>
         </div>
 
         <div class="d-inline-flex align-items-center bg-light border rounded px-3 py-2 mb-5">
-            <code id="install" class="me-2">composer create-project iviphp/ivi myapp</code>
+            <code id="install" class="me-2">composer create-project softadastra/ivi myapp</code>
             <button class="btn btn-sm btn-outline-primary" data-copy="#install" aria-label="Copy install command">Copy</button>
         </div>
 

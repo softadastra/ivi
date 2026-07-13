@@ -255,8 +255,8 @@ if (!function_exists('base_path')) {
      * Absolute path to project root (where composer.json lives).
      *
      * Examples:
-     *  base_path();                         // /home/you/iviphp/ivi
-     *  base_path('docs/getting-started.md') // /home/you/iviphp/ivi/docs/getting-started.md
+     *  base_path();                         // /home/you/softadastra/ivi
+     *  base_path('docs/getting-started.md') // /home/you/softadastra/ivi/docs/getting-started.md
      */
     function base_path(string $path = ''): string
     {
