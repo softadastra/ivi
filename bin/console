@@ -1,0 +1,78 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ *
+ * @file console
+ * @author Gaspard Kirira
+ *
+ * Copyright 2026, Gaspard Kirira.
+ * All rights reserved.
+ * https://github.com/iviphp/ivi
+ *
+ * Use of this source code is governed by an MIT license
+ * that can be found in the LICENSE file.
+ *
+ * IviPHP
+ *
+ */
+
+use Ivi\Framework\Framework;
+
+$basePath = dirname(__DIR__);
+
+try {
+    $framework = require $basePath
+        . DIRECTORY_SEPARATOR
+        . 'bootstrap'
+        . DIRECTORY_SEPARATOR
+        . 'app.php';
+
+    if (!$framework instanceof Framework) {
+        throw new RuntimeException(
+            'The application bootstrap file must return an IviPHP Framework instance.'
+        );
+    }
+
+    exit($framework->run());
+} catch (\Throwable $exception) {
+    $message = trim(
+        $exception->getMessage()
+    );
+
+    if ($message === '') {
+        $message = 'Unable to start the console application.';
+    }
+
+    fwrite(
+        STDERR,
+        '[ERROR] '
+        . $message
+        . PHP_EOL
+    );
+
+    $debug = filter_var(
+        getenv('APP_DEBUG') ?: false,
+        FILTER_VALIDATE_BOOLEAN
+    );
+
+    if ($debug) {
+        fwrite(
+            STDERR,
+            PHP_EOL
+            . $exception::class
+            . PHP_EOL
+            . $exception->getFile()
+            . ':'
+            . $exception->getLine()
+            . PHP_EOL
+            . PHP_EOL
+            . $exception->getTraceAsString()
+            . PHP_EOL
+        );
+    }
+
+    exit(1);
+}

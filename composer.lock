@@ -1,0 +1,307 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "cee8e8cee65f87e155a92b7e9679e38a",
+    "packages": [
+        {
+            "name": "iviphp/config",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iviphp/config.git",
+                "reference": "c0015d6947129f387cc2ea3f926d0b0302f5423b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iviphp/config/zipball/c0015d6947129f387cc2ea3f926d0b0302f5423b",
+                "reference": "c0015d6947129f387cc2ea3f926d0b0302f5423b",
+                "shasum": ""
+            },
+            "require": {
+                "iviphp/support": "^0.1",
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ivi\\Config\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Configuration loading and management for the IviPHP ecosystem.",
+            "support": {
+                "issues": "https://github.com/iviphp/config/issues",
+                "source": "https://github.com/iviphp/config/tree/v0.1.0"
+            },
+            "time": "2026-07-21T10:53:53+00:00"
+        },
+        {
+            "name": "iviphp/console",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iviphp/console.git",
+                "reference": "463fcd5f6760298a88a6fdaa63e236fd9631542a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iviphp/console/zipball/463fcd5f6760298a88a6fdaa63e236fd9631542a",
+                "reference": "463fcd5f6760298a88a6fdaa63e236fd9631542a",
+                "shasum": ""
+            },
+            "require": {
+                "iviphp/contracts": "^0.1",
+                "iviphp/support": "^0.1",
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ivi\\Console\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Console commands, input parsing and terminal output for the IviPHP ecosystem.",
+            "support": {
+                "issues": "https://github.com/iviphp/console/issues",
+                "source": "https://github.com/iviphp/console/tree/v0.1.0"
+            },
+            "time": "2026-07-21T16:40:35+00:00"
+        },
+        {
+            "name": "iviphp/container",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iviphp/container.git",
+                "reference": "0a620aa7eda2c02f6e9a2dc0a0274c51f1258a5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iviphp/container/zipball/0a620aa7eda2c02f6e9a2dc0a0274c51f1258a5d",
+                "reference": "0a620aa7eda2c02f6e9a2dc0a0274c51f1258a5d",
+                "shasum": ""
+            },
+            "require": {
+                "iviphp/contracts": "^0.1",
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ivi\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Dependency injection container for the IviPHP ecosystem.",
+            "support": {
+                "issues": "https://github.com/iviphp/container/issues",
+                "source": "https://github.com/iviphp/container/tree/v0.1.0"
+            },
+            "time": "2026-07-21T10:59:53+00:00"
+        },
+        {
+            "name": "iviphp/contracts",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iviphp/contracts.git",
+                "reference": "325bd2cb14c523789f81e3600ada6928e37ae168"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iviphp/contracts/zipball/325bd2cb14c523789f81e3600ada6928e37ae168",
+                "reference": "325bd2cb14c523789f81e3600ada6928e37ae168",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ivi\\Contracts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Shared interfaces and contracts for the IviPHP ecosystem.",
+            "support": {
+                "issues": "https://github.com/iviphp/contracts/issues",
+                "source": "https://github.com/iviphp/contracts/tree/v0.1.0"
+            },
+            "time": "2026-07-21T10:38:30+00:00"
+        },
+        {
+            "name": "iviphp/debug",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iviphp/debug.git",
+                "reference": "c4683e6d03c53f9cdbe51b0b6733b309bfd23dad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iviphp/debug/zipball/c4683e6d03c53f9cdbe51b0b6733b309bfd23dad",
+                "reference": "c4683e6d03c53f9cdbe51b0b6733b309bfd23dad",
+                "shasum": ""
+            },
+            "require": {
+                "iviphp/contracts": "^0.1",
+                "iviphp/http": "^0.1",
+                "iviphp/support": "^0.1",
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ivi\\Debug\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Debug collectors, handlers and renderers for the IviPHP ecosystem.",
+            "support": {
+                "issues": "https://github.com/iviphp/debug/issues",
+                "source": "https://github.com/iviphp/debug/tree/v0.1.0"
+            },
+            "time": "2026-07-21T16:19:26+00:00"
+        },
+        {
+            "name": "iviphp/framework",
+            "version": "v0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iviphp/framework.git",
+                "reference": "99f9dfe7948ebfb1265a89127852698b3cca05a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iviphp/framework/zipball/99f9dfe7948ebfb1265a89127852698b3cca05a6",
+                "reference": "99f9dfe7948ebfb1265a89127852698b3cca05a6",
+                "shasum": ""
+            },
+            "require": {
+                "iviphp/config": "^0.1",
+                "iviphp/console": "^0.1",
+                "iviphp/container": "^0.1",
+                "iviphp/contracts": "^0.1",
+                "iviphp/debug": "^0.1",
+                "iviphp/http": "^0.1",
+                "iviphp/support": "^0.1",
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ivi\\Framework\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Application bootstrapping, service providers and framework coordination for the IviPHP ecosystem.",
+            "support": {
+                "source": "https://github.com/iviphp/framework/tree/v0.1.2",
+                "issues": "https://github.com/iviphp/framework/issues"
+            },
+            "time": "2026-07-21T17:49:04+00:00"
+        },
+        {
+            "name": "iviphp/http",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iviphp/http.git",
+                "reference": "4d7deaa7137864203353394cdc2fded1f1d9e1a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iviphp/http/zipball/4d7deaa7137864203353394cdc2fded1f1d9e1a8",
+                "reference": "4d7deaa7137864203353394cdc2fded1f1d9e1a8",
+                "shasum": ""
+            },
+            "require": {
+                "iviphp/support": "^0.1",
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ivi\\Http\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "HTTP request and response primitives for the IviPHP ecosystem.",
+            "support": {
+                "issues": "https://github.com/iviphp/http/issues",
+                "source": "https://github.com/iviphp/http/tree/v0.1.0"
+            },
+            "time": "2026-07-21T11:16:48+00:00"
+        },
+        {
+            "name": "iviphp/support",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iviphp/support.git",
+                "reference": "4a8bb5a8cace2da5411bcafffd0ef563936cb8f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iviphp/support/zipball/4a8bb5a8cace2da5411bcafffd0ef563936cb8f3",
+                "reference": "4a8bb5a8cace2da5411bcafffd0ef563936cb8f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ivi\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common low-level utilities for the IviPHP ecosystem.",
+            "support": {
+                "issues": "https://github.com/iviphp/support/issues",
+                "source": "https://github.com/iviphp/support/tree/v0.1.0"
+            },
+            "time": "2026-07-21T10:48:03+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.2"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
